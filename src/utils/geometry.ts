@@ -2,7 +2,7 @@ export type Point = [number, number];
 
 export type Coordinate = Point;
 
-const degreesToRadian = (degrees: number) => degrees * (Math.PI / 180);
+const degreesToRadians = (degrees: number) => degrees * (Math.PI / 180);
 
 const radiansToDegrees = (radians: number) => radians * (180 / Math.PI);
 
@@ -27,7 +27,7 @@ const computeAngle = (vectorA: Coordinate, vectorB: Coordinate) => {
 };
 
 export {
-  degreesToRadian,
+  degreesToRadians,
   radiansToDegrees,
   pointsToVector,
   computeAngle

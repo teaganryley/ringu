@@ -3,9 +3,17 @@ import {
   expect,
   test
 } from 'vitest';
+import {
+  degreesToRadians,
+  radiansToDegrees,
+  pointsToVector,
+  computeAngle
+} from './geometry';
 
-test('Math.sqrt()', () => {
-  expect(Math.sqrt(4)).toBe(2);
-  expect(Math.sqrt(144)).toBe(12);
-  expect(Math.sqrt(2)).toBe(Math.SQRT2);
+const degreesTestCases = [
+  { degrees: 1, expected: 0.0174533},
+];
+
+test.each(degreesTestCases)('degreesToRadians($degrees) -> $expected', ({ degrees, expected}) => {
+  expect(degreesToRadians(degrees)).toBe(expected);
 });
