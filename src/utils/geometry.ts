@@ -46,7 +46,7 @@ TODO:
 
 // given a vector A and a vector B, computes the angle between these two vectors in degrees
 const computeAngle = (vectorA: Vector, vectorB: Vector) =>
-  radiansToDegrees(Math.atan2(dot(vectorA, vectorB), det(vectorA, vectorB)));
+  radiansToDegrees(Math.atan2(det(vectorA, vectorB), dot(vectorA, vectorB)));
 
 /*
 const computeAngle = (vectorA: Vector, vectorB: Vector) => {
