@@ -38,15 +38,26 @@ const Knob: React.FC<KnobProps> = ({
     window.onmouseup = handleMouseUp;
   };
 
+  // M100 100 A 250 250 0 1 1 200 100
+  const startX = center - radius;
+  const endX = center + radius;
+  const d = `M ${startX} ${center} A ${radius} ${radius} 0 1 1 ${endX} ${center}`;
+
   return (
     <svg width={size} height={size} onMouseDown={handleMouseDown}>
-      <circle
+      {/*<circle
         cx={center}
         cy={center}
         r={radius}
         fill="transparent"
         stroke={color}
         strokeWidth={strokeWidth}
+  />*/}
+      <path
+        fill="none"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        d={d}
       />
       <line
         x1={center}

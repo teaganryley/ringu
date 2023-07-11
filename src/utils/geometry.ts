@@ -32,34 +32,25 @@ const det = (vectorA: Vector, vectorB: Vector) => {
   return xA * yB - yA * xB;
 };
 
-/*
-TODO:
-  I'm going to have to think about how arcos coord system relates to rotation coord system
-  1) one is clockwise, the other is counter clockwise
-  2) Their axes are skewed!
-  If that doesn't work, consider going to cos and if statements
+// follows unit circle convention; uses degrees
+const polarToCartesian = (
+  cx: number,
+  cy: number,
+  radius: number,
+  angleInDegrees: number
+): Point => {
+  const angleInRadians = degreesToRadians(angleInDegrees);
 
-  Other things to try: 
-    -place the component in the middle of the page, and console log mouse movements
-    -same as above, but feed mouse movements to computeAngle and log
-*/
+  return [
+    cx + radius * Math.cos(angleInRadians),
+    cy + radius * Math.sin(angleInRadians),
+  ];
+};
 
+// TODO: Test
 // given a vector A and a vector B, computes the angle between these two vectors in degrees
 const computeAngle = (vectorA: Vector, vectorB: Vector) =>
   radiansToDegrees(Math.atan2(det(vectorA, vectorB), dot(vectorA, vectorB)));
-
-/*
-const computeAngle = (vectorA: Vector, vectorB: Vector) => {
-  const theta = Math.acos(dot(vectorA, vectorB) / (magnitude(vectorA) * magnitude(vectorB)));
-  let angleDegrees = radiansToDegrees(theta);
-  
-  if (vectorB[1] < 0) {
-    angleDegrees = 360 - angleDegrees;
-  }
-
-  return angleDegrees;
-};
-*/ 
 
 export {
   degreesToRadians,
@@ -67,4 +58,5 @@ export {
   pointsToVector,
   magnitude,
   computeAngle,
+  polarToCartesian
 };

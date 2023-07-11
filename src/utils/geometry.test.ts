@@ -3,6 +3,7 @@ import {
   degreesToRadians,
   radiansToDegrees,
   pointsToVector,
+  polarToCartesian,
   computeAngle,
   Point,
   Vector,
@@ -50,7 +51,13 @@ test.each(points)(
   }
 );
 
-// test case 3
+// test
+const polarCoordinates = [
+  {cx: 0, cy: 0, radius: 1, angle: 90, expected: [0, 1]}
+];
+
+// TODO: Refactor, although we don't really need this function anymore...
+// test case 4
 const vectors = [
   { vectorA: [0, 0], vectorB: [0, 0], angle: NaN },
   { vectorA: [0, 5], vectorB: [0, 7], angle: 0 },

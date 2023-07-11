@@ -6,7 +6,7 @@ const Panel = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100bh;
+  height: 100vh;
 `;
 
 const App = () => {
