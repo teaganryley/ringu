@@ -53,8 +53,16 @@ test.each(points)(
 
 // test
 const polarCoordinates = [
-  {cx: 0, cy: 0, radius: 1, angle: 90, expected: [0, 1]}
+  {cx: 0, cy: 0, radius: 1, angle: 90, expected: [0, 1]},
+  {cx: 0, cy: 0, radius: 1, angle: 180, expected: [-1, 0]}
 ];
+
+test.each(polarCoordinates)(
+  'polarToCartesian($cx, $cy, $radius, $angle) -> $expected',
+  ({cx, cy, radius, angle, expected}) => {
+    expect(polarToCartesian(cx, cy, radius, angle)).toEqual(expected);
+  }
+)
 
 // TODO: Refactor, although we don't really need this function anymore...
 // test case 4

@@ -43,7 +43,7 @@ const polarToCartesian = (
 
   return [
     cx + radius * Math.cos(angleInRadians),
-    cy + radius * Math.sin(angleInRadians),
+    cy + radius * Math.sin(-angleInRadians), // must be negated for screen coordinate system
   ];
 };
 
